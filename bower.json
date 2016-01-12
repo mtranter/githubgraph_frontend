@@ -1,5 +1,5 @@
 {
-  "name": "marktranter",
+  "name": "githubgraph_frontend",
   "version": "0.0.0",
   "dependencies": {
     "angular-animate": "~1.4.2",
