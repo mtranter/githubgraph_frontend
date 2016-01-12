@@ -229,7 +229,7 @@ var GithubGraphCtrl = (function(d3){
         
         FORCE_CFG_MAP[user] = {charge: -500, linkDistance: 400};
 
-        getUserData(user, function(err, data){
+        getUserData(user, function(er, data){
             
             if(err){
                 err(err);

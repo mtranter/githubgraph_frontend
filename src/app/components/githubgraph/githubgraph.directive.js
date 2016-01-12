@@ -5,11 +5,11 @@ export function NetworkGraphDirective() {
 
   let directive = {
     restrict: 'E',
-    templateUrl: 'app/network/networkgraph.directive.html',
+    templateUrl: 'app/components/githubgraph/githubgraph.directive.html',
     scope: {
-        user:'&',
-        isCluster:'&',
-        isRadial:'&'
+        user:'=',
+        isCluster:'=',
+        isRadial:'='
     },
     controller: NetworkGraphController,
     controllerAs: 'vm',
@@ -22,22 +22,22 @@ export function NetworkGraphDirective() {
 class NetworkGraphController {
   constructor ($scope) {
     'ngInject';
-    GraphCtrl.fetch('mtranter');
     
-    function setupWatch(watchWhat){
-        $scope.watch(watchWhat, 
+    var setupWatch = function(watchWhat){
+        $scope.$watch(watchWhat, 
             angular.bind(this, this.drawGraph));
-    }
+    }.bind(this);
     
     [() => this.isRadial, () => this.isCluster]
         .forEach(setupWatch);
         
-    $scope.$watch(() => this.user, angular.bind(this, this.drawGraph));
+    $scope.$watch(() => this.user, angular.bind(this, 
+        () => GithubGraphCtrl.fetch(this.user())));
     
-    $scope.$on('$destroy', GraphCtrl.destroy);
+    $scope.$on('$destroy', GithubGraphCtrl.destroy);
   }
   drawGraph(){
       var method = (this.isRadial ? 'radial' : 'linear') + (this.isCluster ? 'cluster' : 'tree');
-      GraphCtrl[method]();
+      GithubGraphCtrl[method]();
   }
 }
