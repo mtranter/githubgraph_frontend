@@ -6,6 +6,12 @@ export class HomeController{
             this.isRadial = false;
       }
       drawGraph(user){
-          this.ctrl.draw(user);
+          this.waiting = true;
+          this.ctrl.draw(user, function(err){
+              this.waiting = false;
+              if(err){
+                  alert(user + ' not found');
+              }
+          });
       }
 }

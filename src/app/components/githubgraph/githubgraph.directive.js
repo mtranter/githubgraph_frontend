@@ -31,12 +31,8 @@ class NetworkGraphController {
     [() => this.isRadial, () => this.isCluster]
         .forEach(setupWatch);
         
-    this.ctrl.draw = function(user){
-        GithubGraphCtrl.fetch(user, function(err){
-            if(err){
-                alert('User not found');
-            }
-        });
+    this.ctrl.draw = function(user, cb){
+        GithubGraphCtrl.fetch(user, cb);
     }
     
     

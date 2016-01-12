@@ -12,12 +12,14 @@
     </div>
     
     <form ng-submit="vm.drawGraph(user)">
-        <div class="">
-            <input name="user" class="" ng-model="user" type="text" id="user">
-            <label class="" for="sample3">User</label>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input name="user" class="mdl-textfield__input" ng-model="user" type="text" id="sample3">
+            <label class="mdl-textfield__label" for="sample3">GitHub Username...</label>
         </div>
-        <input type="submit" class="" value="draw">
-        </input>
+        <button ng-hide="vm.waiting" type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+            Draw!
+        </button>
+        <div ng-show="vm.waiting">Loading...</div>
     </form>
     
     <ghg-graph ctrl="vm.ctrl" is-radial="vm.isRadial" is-cluster="vm.isCluster"></ghg-graph>

@@ -226,14 +226,14 @@ var GithubGraphCtrl = (function(d3){
         }
     }
     
-    function fetch(user, err){
+    function fetch(user, cb){
         
         FORCE_CFG_MAP[user] = {charge: -500, linkDistance: 400};
 
         getUserData(user, function(er, data){
             
+            cb(er, data);
             if(er){
-                err(er);
                 return;
             }
             
@@ -299,4 +299,5 @@ var GithubGraphCtrl = (function(d3){
             initialized = false;
         }
     }
-})(d3)
+
+})(d3) 
