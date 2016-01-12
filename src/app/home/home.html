@@ -1,0 +1,15 @@
+<div id="network">
+    
+    <div class="graph-options">
+        <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="radial-switch">
+            <input id="radial-switch" type="checkbox" ng-model="vm.isRadial" class="mdl-switch__input" checked>
+            <span class="mdl-switch__label">{{vm.isRadial ? 'Linear' : 'Radial'}}</span>
+        </label>
+        <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="cluster-switch">
+            <input id="cluster-switch" type="checkbox" ng-model="vm.isCluster"  class="mdl-switch__input">
+            <span class="mdl-switch__label">{{vm.isCluster ? 'Tree' : 'Cluster'}}</span>
+        </label>
+    </div>
+    
+    <ghg-network-graph user="vm.user" is-radial="vm.isRadial" is-cluster="vm.isCluster"></ghg-network-graph>
+</div>
