@@ -237,6 +237,11 @@ var GithubGraphCtrl = (function(d3){
                 return;
             }
             
+            if(initialized){
+                GithubGraphCtrl.destroy();
+                GithubGraphCtrl.init();
+            }
+            
             initialized = true;
             root = nodeify(data.userDetail);
             //root.name='userDetail';
@@ -289,6 +294,7 @@ var GithubGraphCtrl = (function(d3){
         lineartree: transitionToTree,
         linearcluster: transitionToCluster,
         destroy: function(){
+            d3.select("#network-graph").remove();
             svg = null;
             initialized = false;
         }
