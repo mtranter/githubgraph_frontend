@@ -299,5 +299,4 @@ var GithubGraphCtrl = (function(d3){
             initialized = false;
         }
     }
-
 })(d3)
