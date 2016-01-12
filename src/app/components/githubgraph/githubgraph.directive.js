@@ -1,13 +1,13 @@
-/*global GraphCtrl*/
+/*global GithubGraphCtrl*/
 
-export function NetworkGraphDirective() {
+export function GitHubGraphGraphDirective() {
   'ngInject';
 
   let directive = {
     restrict: 'E',
     templateUrl: 'app/components/githubgraph/githubgraph.directive.html',
     scope: {
-        user:'=',
+        ctrl: '=',
         isCluster:'=',
         isRadial:'='
     },
@@ -31,10 +31,19 @@ class NetworkGraphController {
     [() => this.isRadial, () => this.isCluster]
         .forEach(setupWatch);
         
-    $scope.$watch(() => this.user, angular.bind(this, 
-        () => GithubGraphCtrl.fetch(this.user())));
+    this.ctrl.draw = function(user){
+        GithubGraphCtrl.fetch(user, function(err){
+            if(err){
+                alert('User not found');
+            }
+        });
+    }
+    
     
     $scope.$on('$destroy', GithubGraphCtrl.destroy);
+  }
+  init(){
+      GithubGraphCtrl.init();
   }
   drawGraph(){
       var method = (this.isRadial ? 'radial' : 'linear') + (this.isCluster ? 'cluster' : 'tree');

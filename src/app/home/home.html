@@ -11,5 +11,14 @@
         </label>
     </div>
     
-    <ghg-network-graph user="vm.user" is-radial="vm.isRadial" is-cluster="vm.isCluster"></ghg-network-graph>
+    <form ng-submit="vm.drawGraph(user)">
+        <div class="">
+            <input name="user" class="" ng-model="user" type="text" id="user">
+            <label class="" for="sample3">User</label>
+        </div>
+        <input type="submit" class="" value="draw">
+        </input>
+    </form>
+    
+    <ghg-graph ctrl="vm.ctrl" is-radial="vm.isRadial" is-cluster="vm.isCluster"></ghg-graph>
 </div>

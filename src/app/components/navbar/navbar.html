@@ -1,18 +1,19 @@
 <div class="navbar demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
-        <header class="demo-drawer-header">
-          <img src="https://s.gravatar.com/avatar/ee5655cf607fe9fc15a702492c02a0e5?s=80" class="demo-avatar">
-                      <span>Mark T.</span>
-            <div class="mdl-layout-spacer"></div>
+    <header class="demo-drawer-header">
+        <i class="mdl-color-text--blue-grey-400 material-icons ng-binding" role="presentation" style="
+                font-size: 64px;
+            ">share</i>
+        <span>GitHub Graph</span>
+        <div class="mdl-layout-spacer"></div>
 
-        </header>
-        <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
-          <a class="mdl-navigation__link" ng-repeat="state in vm.states" ng-init="cfg = state.navCfg" ui-sref="{{cfg.state}}">
-              <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">{{cfg.ico}}</i>
-              {{cfg.title}}
+    </header>
+    <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
+        <a class="mdl-navigation__link" ng-repeat="state in vm.states" ng-init="cfg = state.navCfg" ui-sref="{{cfg.state}}">
+            <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">{{cfg.ico}}</i> {{cfg.title}}
         </a>
-          
-          
-          <div class="mdl-layout-spacer"></div>
-          
-        </nav>
-      </div>
+
+
+        <div class="mdl-layout-spacer"></div>
+
+    </nav>
+</div>

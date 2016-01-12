@@ -214,6 +214,7 @@ var GithubGraphCtrl = (function(d3){
             d3.json('http://api.githubgraph.io/user/' + user, function(err, data){
                 if(err){
                     cb(err);
+                    return;
                 }
                 cache[user] = data;
                 cb(null, data);
@@ -231,8 +232,8 @@ var GithubGraphCtrl = (function(d3){
 
         getUserData(user, function(er, data){
             
-            if(err){
-                err(err);
+            if(er){
+                err(er);
                 return;
             }
             
