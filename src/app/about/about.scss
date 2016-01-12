@@ -1,0 +1,16 @@
+#about{
+    margin-top:100px;
+    padding-left:40px;
+    color: #eceff1;
+    .me {
+        .vcard{
+            padding:20px 0 0 20px;
+            i { 
+                &.fa{
+                    font-size:28px;
+                }
+                padding-right:5px;
+            }
+        }
+    }
+}
