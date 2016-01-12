@@ -294,7 +294,7 @@ var GithubGraphCtrl = (function(d3){
         lineartree: transitionToTree,
         linearcluster: transitionToCluster,
         destroy: function(){
-            d3.select("#network-graph").remove();
+            d3.select("#network-graph svg").remove();
             svg = null;
             initialized = false;
         }
